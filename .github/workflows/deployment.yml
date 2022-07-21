@@ -15,10 +15,10 @@ jobs:
           args: zip -qq -r  Escapia_Liquibase_${{ github.ref_name }}_${{ github.event.repository.updated_at}}.zip Liquibase
   pushArtefact:
     runs-on: ubuntu-latest
-      steps:
-        - name: Check out repo
-          uses: actions/checkout@v2
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v2
 
-        - name: Connecting to JFrog
-          run: echo "Connecting to JFrog"
+      - name: Connecting to JFrog
+        run: echo "Connecting to JFrog"
 
