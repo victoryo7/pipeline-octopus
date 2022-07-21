@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v2
+      - name: Branch name
+        run: echo running on branch ${GITHUB_REF##*/}
       - name: Zip the Liquibase Folder
         uses: montudor/action-zip@v1
         with:
