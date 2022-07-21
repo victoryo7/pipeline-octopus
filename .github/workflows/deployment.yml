@@ -6,14 +6,13 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v2
-      - name: Set current date as env variable
-        run: echo "NOW::$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+
       - name: Echo current date
-        run: echo $NOW
+        run: echo ${{ github.event.repository.updated_at}}
       - name: Zip the Liquibase Folder
         uses: montudor/action-zip@v1
         with:
-          args: zip -qq -r  Escapia_Liquibase_${{ github.ref_name }}_dir.zip LiquibaseTest
+          args: zip -qq -r  Escapia_Liquibase_${{ github.ref_name }}_${{ github.event.repository.updated_at}}.zip LiquibaseTest
       - name: Check the directory
         run: |
           pwd
