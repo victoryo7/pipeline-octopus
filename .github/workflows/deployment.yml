@@ -12,8 +12,13 @@ jobs:
       - name: Zip the Liquibase Folder
         uses: montudor/action-zip@v1
         with:
-          args: zip -qq -r  Escapia_Liquibase_${{ github.ref_name }}_${{ github.event.repository.updated_at}}.zip LiquibaseTest
-      - name: Check the directory
-        run: |
-          pwd
-          ls -ll
+          args: zip -qq -r  Escapia_Liquibase_${{ github.ref_name }}_${{ github.event.repository.updated_at}}.zip Liquibase
+  pushArtefact:
+    runs-on: ubuntu-latest
+      steps:
+        - name: Check out repo
+          uses: actions/checkout@v2
+
+        - name: Connecting to JFrog
+          run: echo "Connecting to JFrog"
+
