@@ -1,15 +1,12 @@
-name: hello-world
+name: liquibase-octopus-pipeline
 on: push
 jobs:
-  my-job:
+  zipTheArtefacts:
     runs-on: ubuntu-latest
     steps:
-      - name: my-step
-        run: echo "Hello World!"
-  build:
-    runs-on: windows-2019
-    steps:
-      - name: Check out repo        
+      - name: Check out repo
         uses: actions/checkout@v2
-      - run: |
-          $env:UserName
+      - name: Check the directory
+        run: |
+          pwd
+          ls -ll
