@@ -6,3 +6,11 @@ jobs:
     steps:
       - name: my-step
         run: echo "Hello World!"
+  build:
+    runs-on: windows-2019
+    steps:
+      - name: Check out repo        
+        uses: actions/checkout@v2
+      - run: |
+	  pwd
+          $env:UserName
